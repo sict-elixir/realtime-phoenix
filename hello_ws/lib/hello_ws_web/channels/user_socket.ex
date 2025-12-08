@@ -2,8 +2,7 @@ defmodule HelloWsWeb.UserSocket do
   use Phoenix.Socket
 
   # Channels go here
-  # channel "room:*", HelloWsWeb.RoomChannel
-
+  channel "room:*", HelloWsWeb.RoomChannel
   def connect(_params, socket, _connect_info) do
     {:ok, socket}
   end
