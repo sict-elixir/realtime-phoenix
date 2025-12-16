@@ -15,6 +15,10 @@ defmodule HelloWsWeb.Endpoint do
     websocket: true,
     longpoll: false
 
+  socket "/auth_socket", HelloWsWeb.AuthSocket,
+    websocket: true,
+    longpoll: false
+
   socket "/live", Phoenix.LiveView.Socket,
     websocket: [connect_info: [session: @session_options]],
     longpoll: [connect_info: [session: @session_options]]
