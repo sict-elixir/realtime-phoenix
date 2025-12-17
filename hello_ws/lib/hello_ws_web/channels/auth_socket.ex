@@ -6,6 +6,7 @@ defmodule HelloWsWeb.AuthSocket do
 
   channel("ping", HelloWsWeb.PingChannel)
   channel("tracked", HelloWsWeb.TrackedChannel)
+  channel "user:*", HelloWsWeb.AuthChannel
 
   def connect(%{"token" => token}, socket) do
     case verify(socket, token) do
