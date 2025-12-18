@@ -38,7 +38,11 @@ channel.on("send_ping", (payload) => {
     .receive("ok", (resp) => console.log("ping:", resp.ping)) 
 })
 // when unexpected error happens, channel try to reconnect
-channel.push("invalid") 
-  .receive("ok", (resp) => console.log("won't happen")) 
-  .receive("error", (resp) => console.error("won't happen")) 
-  .receive("timeout", (resp) => console.error("invalid event timeout"))
+// channel.push("invalid") 
+//   .receive("ok", (resp) => console.log("won't happen")) 
+//   .receive("error", (resp) => console.error("won't happen")) 
+//   .receive("timeout", (resp) => console.error("invalid event timeout"))
+
+const authSocket = new Socket("/auth_socket", { params: { token: window.authToken } })
+authSocket.onOpen(() => console.log('authSocket connected'))
+authSocket.connect()
